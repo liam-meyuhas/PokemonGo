@@ -28,7 +28,7 @@ export const startAnimation = (
       }),
     ]),
     Animated.timing(rotateValue, {
-      toValue: 6,
+      toValue: 7,
       duration: 2000,
       easing: Easing.linear,
       useNativeDriver: true,

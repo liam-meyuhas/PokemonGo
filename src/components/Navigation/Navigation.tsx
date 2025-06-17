@@ -1,27 +1,36 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Shop from '../../screens/Shop';
-import Search from '../../screens/Search/Search';
+import PokemonSearch from '../../screens/Search/PokemonSearch';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Image} from 'native-base';
+import {useColorModeValue} from 'native-base';
+import useHeaderStyles from './hooks/useHeaderStyles';
+import PokemonCollection from '../../screens/PokemonCollection/PokemonCollection';
 
 const Navigation = () => {
   const Tab = createBottomTabNavigator();
+  const {tabBarBgColor, tabBarActiveColor, tabBarInactiveColor} =
+    useHeaderStyles();
 
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: {backgroundColor: '#eee', height: 100, paddingTop: 20},
-          tabBarActiveTintColor: '#000',
-          tabBarInactiveTintColor: '#888',
+          tabBarStyle: {
+            backgroundColor: tabBarBgColor,
+            height: 100,
+            paddingTop: 20,
+            borderTopColor: useColorModeValue('#ccc', '#333'),
+            borderTopWidth: 1,
+          },
+          tabBarActiveTintColor: tabBarActiveColor,
+          tabBarInactiveTintColor: tabBarInactiveColor,
           tabBarShowLabel: false,
         }}>
         <Tab.Screen
-          name="Shop"
-          component={Shop}
+          name="PokemonCollection"
+          component={PokemonCollection}
           options={{
             tabBarIcon: ({color}) => (
               <Icon name="cart-outline" size={30} color={color} />
@@ -29,8 +38,8 @@ const Navigation = () => {
           }}
         />
         <Tab.Screen
-          name="Search"
-          component={Search}
+          name="PokemonSearch"
+          component={PokemonSearch}
           options={{
             tabBarIcon: ({color}) => (
               <Icon name="search-outline" size={30} color={color} />

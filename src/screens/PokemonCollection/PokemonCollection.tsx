@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, Button, FlatList} from 'react-native';
-import usePokemon from '../context/Pokemons/hooks/usePokemon';
+import {View, Text, FlatList} from 'react-native';
+import usePokemon from '../../context/Pokemons/hooks/usePokemon';
 
-const MainScreen = () => {
+const PokemonCollection = () => {
   const {pokemonList} = usePokemon();
   return (
     <View style={{padding: 20}}>
@@ -19,4 +19,4 @@ const MainScreen = () => {
   );
 };
 
-export default MainScreen;
+export default PokemonCollection;

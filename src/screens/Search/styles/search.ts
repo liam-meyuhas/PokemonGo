@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#000',
     marginHorizontal: 20,
     paddingBottom: 4,
     marginTop: 20,
@@ -18,5 +17,10 @@ export const styles = StyleSheet.create({
   },
   icon: {
     marginLeft: 10,
+  },
+  img: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
   },
 });

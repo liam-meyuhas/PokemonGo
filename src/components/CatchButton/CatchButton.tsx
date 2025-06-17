@@ -3,7 +3,7 @@ import {Animated} from 'react-native';
 import {Button, Image, Pressable} from 'native-base';
 import {startAnimation} from './utils/catchPokemon';
 import usePokemon from '../../context/Pokemons/hooks/usePokemon';
-
+import CatchBall from '../../assets/images/CatchBall.png';
 const CatchButton: React.FC<{name: string}> = ({name}) => {
   const translateY = useRef(new Animated.Value(0)).current;
   const rotateValue = useRef(new Animated.Value(0)).current;
@@ -23,11 +23,7 @@ const CatchButton: React.FC<{name: string}> = ({name}) => {
           startAnimation(rotateValue, translateY, setIsCaught, name, addPokemon)
         }>
         <Animated.View style={{transform: [{translateY}, {rotate}]}}>
-          <Image
-            source={require('../../assets/images/CatchBall.png')}
-            alt="Catch Ball"
-            size="sm"
-          />
+          <Image source={CatchBall} alt="Catch Ball" size="sm" />
         </Animated.View>
       </Pressable>
     </Button>

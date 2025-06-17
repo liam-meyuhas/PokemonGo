@@ -1,4 +1,4 @@
-import {Pokemon} from '../../../store/types/pokemon';
+import {Pokemon} from '../../../types/pokemon';
 
 export const filteredArrayBySearchTerm = (
   pokemons: Pokemon[],

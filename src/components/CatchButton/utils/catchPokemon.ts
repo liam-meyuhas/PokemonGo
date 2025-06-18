@@ -9,7 +9,7 @@ export const startAnimation = (
   translateY: Animated.Value,
   setIsCaught: (boolean: boolean) => void,
   name: string,
-  addPokemon: (name: string) => void,
+  handleAddPokemon: (name: string, image: string) => void,
 ): void => {
   rotateValue.setValue(0);
   Animated.sequence([
@@ -51,7 +51,7 @@ export const startAnimation = (
     rotateValue.setValue(0);
     const IsCaught = isCaught();
     if (IsCaught) {
-      addPokemon(name);
+      handleAddPokemon(name, 'http');
     }
     setIsCaught(IsCaught);
   });

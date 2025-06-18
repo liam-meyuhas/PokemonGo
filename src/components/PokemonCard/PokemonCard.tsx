@@ -98,7 +98,7 @@ const PokemonCard: React.FC<Pokemon> = ({
           }}
         />
 
-        <CatchButton name={name} />
+        <CatchButton name={name} image={PokemonImage} />
       </VStack>
     </Box>
   );

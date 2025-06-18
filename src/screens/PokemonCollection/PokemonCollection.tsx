@@ -1,22 +1,34 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
-import usePokemon from '../../context/Pokemons/hooks/usePokemon';
+import {View, Text, Image} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../store/store';
 
-const PokemonCollection = () => {
-  const {pokemonList} = usePokemon();
+const PokemonList = () => {
+  const pokemonList = useSelector(
+    (state: RootState) => state.pokemonsCollection.pokemonList,
+  );
+
   return (
-    <View style={{padding: 20}}>
-      <FlatList
-        data={pokemonList}
-        keyExtractor={item => item.name}
-        renderItem={({item}) => (
+    <View>
+      {pokemonList.map((pokemon, index) => (
+        <View key={index} style={{marginBottom: 10}}>
           <Text>
-            {item.name} - {item.caughtNumber}
+            {pokemon.name} - {pokemon.caughtNumber} פעמים
           </Text>
-        )}
-      />
+
+          <Image
+            source={{uri: pokemon.image}}
+            style={{width: 50, height: 50, borderRadius: 5}}
+          />
+
+          <Text>
+            {pokemon.isFavorite ? '⭐' : ''} {pokemon.nickName}{' '}
+            {new Date(pokemon.creationDate).toLocaleDateString()}
+          </Text>
+        </View>
+      ))}
     </View>
   );
 };
 
-export default PokemonCollection;
+export default PokemonList;

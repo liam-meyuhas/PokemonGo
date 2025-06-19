@@ -1,34 +1,32 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import {useSelector} from 'react-redux';
-import {RootState} from '../../store/store';
+import {ActivityIndicator} from 'react-native';
+import {usePokemonStore} from '../../story/usePokemonCollectoin';
+import {Box, HStack, Text} from 'native-base';
+import {styles} from './components/styles/pokemonCollectionStyles';
+import FlipCard from './components/FlipCard/FlipCard';
 
-const PokemonList = () => {
-  const pokemonList = useSelector(
-    (state: RootState) => state.pokemonsCollection.pokemonList,
-  );
+const PokemonScreen = () => {
+  const isHydrated = usePokemonStore(state => state.isHydrated);
+  const pokemons = usePokemonStore(state => state.pokemons);
+
+  if (!isHydrated) {
+    return (
+      <Box style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color="#007AFF" />
+        <Text>טוען נתונים...</Text>
+      </Box>
+    );
+  }
 
   return (
-    <View>
-      {pokemonList.map((pokemon, index) => (
-        <View key={index} style={{marginBottom: 10}}>
-          <Text>
-            {pokemon.name} - {pokemon.caughtNumber} פעמים
-          </Text>
-
-          <Image
-            source={{uri: pokemon.image}}
-            style={{width: 50, height: 50, borderRadius: 5}}
-          />
-
-          <Text>
-            {pokemon.isFavorite ? '⭐' : ''} {pokemon.nickName}{' '}
-            {new Date(pokemon.creationDate).toLocaleDateString()}
-          </Text>
-        </View>
-      ))}
-    </View>
+    <Box flex={1} p={4} ml={5} bg="#F0F0F0" alignItems="center">
+      <HStack flexWrap="wrap" justifyContent="flex-start" space={4}>
+        {pokemons.map(pokemon => (
+          <FlipCard key={pokemon.name} pokemon={pokemon} />
+        ))}
+      </HStack>
+    </Box>
   );
 };
 
-export default PokemonList;
+export default PokemonScreen;

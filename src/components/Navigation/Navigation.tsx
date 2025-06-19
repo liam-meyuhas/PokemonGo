@@ -1,11 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import PokemonSearch from '../../screens/Search/PokemonSearch';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useColorModeValue} from 'native-base';
 import useHeaderStyles from './hooks/useHeaderStyles';
 import PokemonCollection from '../../screens/PokemonCollection/PokemonCollection';
+import PokemonSearchScreen from '../../screens/PokemonSearchScreen/PokemonSearchScreen';
 
 const Navigation = () => {
   const Tab = createBottomTabNavigator();
@@ -38,8 +38,8 @@ const Navigation = () => {
           }}
         />
         <Tab.Screen
-          name="PokemonSearch"
-          component={PokemonSearch}
+          name="PokemonSearchScreen"
+          component={PokemonSearchScreen}
           options={{
             tabBarIcon: ({color}) => (
               <Icon name="search-outline" size={30} color={color} />

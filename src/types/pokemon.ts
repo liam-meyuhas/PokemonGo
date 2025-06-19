@@ -1,6 +1,14 @@
 export type Pokemon = {
   name: string;
-  PokemonImage: string;
+  pokemonImage: string;
   types: string[];
   abilities: string[];
+};
+
+export type PokemonCollection = {
+  name: string;
+  isCaught: number;
+  isFavorite: boolean;
+  date: Date;
+  nickName: string;
 };

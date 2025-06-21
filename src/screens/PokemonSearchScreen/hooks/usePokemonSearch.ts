@@ -26,6 +26,8 @@ export const usePokemonSearch = () => {
         pokemonImage: data.sprites.front_shiny,
         types: data.types.map((t: any) => t.type.name),
         abilities: data.abilities.map((a: any) => a.ability.name),
+        height: data.height, 
+        weight: data.weight,
       });
     } catch (error) {
       setError((error as Error).message);

@@ -4,7 +4,6 @@ import useSearchStyle from './hooks/useSearchStyle';
 import SearchBar from './components/SearchBar/SearchBar';
 import PokemonCard from './components/PokemonCard/PokemonCard';
 import usePokemonSearch from './hooks/usePokemonSearch';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const PokemonSearchScreen = () => {
   const {bgColor} = useSearchStyle();
@@ -12,17 +11,6 @@ const PokemonSearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const {loading, error, pokemon, fetchPokemon} = usePokemonSearch();
-
-  // const clearAllStorage = async () => {
-  //   try {
-  //     await AsyncStorage.clear();
-  //     console.log('📦 AsyncStorage נוקה בהצלחה');
-  //   } catch (e) {
-  //     console.error('❌ שגיאה במחיקת AsyncStorage:', e);
-  //   }
-  // };
-
-  // clearAllStorage();
   return (
     <Box flex={1} bg={bgColor} px={3} pt={2}>
       <SearchBar
@@ -46,6 +34,8 @@ const PokemonSearchScreen = () => {
           pokemonImage={pokemon.pokemonImage}
           types={pokemon.types}
           abilities={pokemon.abilities}
+          height={pokemon.height}
+          weight={pokemon.weight}
         />
       )}
     </Box>

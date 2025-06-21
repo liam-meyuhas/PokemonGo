@@ -8,7 +8,6 @@ export const usePokemonStore = create<PokemonState>()(
   persist(
     (set, get) => ({
       pokemons: [],
-      isHydrated: false,
 
       addPokemon: name => {
         const currentPokemonsCollection = get().pokemons;
@@ -22,11 +21,6 @@ export const usePokemonStore = create<PokemonState>()(
     {
       name: 'pokemon-storage',
       storage: createJSONStorage(() => AsyncStorage),
-      onRehydrateStorage: () => state => {
-        if (state) {
-          state.isHydrated = true;
-        }
-      },
     },
   ),
 );

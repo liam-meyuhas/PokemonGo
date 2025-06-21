@@ -33,6 +33,7 @@ export const startAnimation = (
       easing: Easing.linear,
       useNativeDriver: true,
     }),
+    
     Animated.parallel([
       Animated.timing(translateY, {
         toValue: 0,

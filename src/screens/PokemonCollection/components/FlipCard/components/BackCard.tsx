@@ -1,13 +1,16 @@
 import React from 'react';
-import {Text, VStack} from 'native-base';
+import {Image} from 'react-native';
 
 const BackCard = () => {
   return (
-    <VStack space={2} alignItems="center">
-      <Text bold fontSize="lg" color="#333">
-        liam meyuhas
-      </Text>
-    </VStack>
+    <Image
+      source={require('../../../../../assets/images/BackPokemonCard.png')}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+      resizeMode="cover"
+    />
   );
 };
 

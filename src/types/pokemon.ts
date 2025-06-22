@@ -3,8 +3,8 @@ export type Pokemon = {
   pokemonImage: string;
   types: string[];
   abilities: string[];
-  height?:number,
-  weight?:number
+  height?: number;
+  weight?: number;
 };
 
 export type PokemonCollection = {
@@ -13,4 +13,5 @@ export type PokemonCollection = {
   isFavorite: boolean;
   date: Date;
   nickName: string;
+  image: string;
 };

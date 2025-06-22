@@ -7,11 +7,12 @@ import {CatchButtonProps} from './types/catchButtonTypes';
 import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
 import FastImage from 'react-native-fast-image';
 
-const CatchButton: React.FC<CatchButtonProps> = ({name}) => {
+const CatchButton: React.FC<CatchButtonProps> = ({name, image}) => {
   const translateY = useRef(new Animated.Value(0)).current;
   const rotateValue = useRef(new Animated.Value(0)).current;
   const [isCaught, setIsCaught] = useState<boolean>(false);
 
+  console.log(image, 'catchButton');
   const addPokemon = usePokemonStore(state => state.addPokemon);
 
   const rotate = rotateValue.interpolate({
@@ -20,7 +21,7 @@ const CatchButton: React.FC<CatchButtonProps> = ({name}) => {
   });
 
   const handleAddPokemon = () => {
-    addPokemon(name);
+    addPokemon(name, image);
   };
 
   return (
@@ -31,6 +32,7 @@ const CatchButton: React.FC<CatchButtonProps> = ({name}) => {
           translateY,
           setIsCaught,
           name,
+          image,
           handleAddPokemon,
         )
       }>

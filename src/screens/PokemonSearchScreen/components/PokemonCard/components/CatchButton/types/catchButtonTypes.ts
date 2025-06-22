@@ -1,1 +1,1 @@
-export type CatchButtonProps = {name: string};
+export type CatchButtonProps = {name: string; image: string};

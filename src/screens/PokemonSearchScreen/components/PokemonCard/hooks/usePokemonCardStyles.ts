@@ -2,7 +2,7 @@ import {useColorModeValue} from 'native-base';
 
 export const usePokemonCardStyles = () => {
   return {
-    bgColor: useColorModeValue('#FE6D3E', 'blueGray.900'),
+    bgColor: useColorModeValue('#ED7013', 'blueGray.900'),
     titleColor: useColorModeValue('blue.700', 'blue.200'),
     typeTextColor: useColorModeValue('blue.900', 'blue.100'),
     typeBgColor: useColorModeValue('blue.200', 'blue.600'),

@@ -53,12 +53,11 @@ const PokemonCard: React.FC<Pokemon> = ({
 
         <HStack alignItems="center" justifyContent="center" space={10} mr={4}>
           <PokemonDetails title="Attack" description="rocket" />
-          <CatchButton name={name} />
+          <CatchButton name={name} image={pokemonImage} />
           <PokemonDetails title="speed" description="15m" />
         </HStack>
       </VStack>
     </Box>
   );
 };
-
 export default PokemonCard;

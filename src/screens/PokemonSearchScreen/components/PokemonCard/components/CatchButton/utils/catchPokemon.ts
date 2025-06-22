@@ -9,8 +9,11 @@ export const startAnimation = (
   translateY: Animated.Value,
   setIsCaught: (boolean: boolean) => void,
   name: string,
-  handleAddPokemon: (name: string) => void,
+  image: string,
+  handleAddPokemon: (name: string, image: string) => void,
 ): void => {
+  console.log(image, 'animation');
+
   rotateValue.setValue(0);
   Animated.sequence([
     Animated.parallel([
@@ -33,7 +36,7 @@ export const startAnimation = (
       easing: Easing.linear,
       useNativeDriver: true,
     }),
-    
+
     Animated.parallel([
       Animated.timing(translateY, {
         toValue: 0,
@@ -52,7 +55,7 @@ export const startAnimation = (
     rotateValue.setValue(0);
     const IsCaught = isCaught();
     if (IsCaught) {
-      handleAddPokemon(name);
+      handleAddPokemon(name, image);
     }
     setIsCaught(IsCaught);
   });

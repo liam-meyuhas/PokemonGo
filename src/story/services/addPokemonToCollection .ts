@@ -3,6 +3,7 @@ import {PokemonCollection} from '../../types/pokemon';
 export const addPokemonToCollection = (
   pokemons: PokemonCollection[],
   name: string,
+  image: string
 ): PokemonCollection[] => {
   const pokemonIndex = pokemons.findIndex(pokemon => pokemon.name === name);
 
@@ -14,7 +15,8 @@ export const addPokemonToCollection = (
         isCaught: 1,
         isFavorite: false,
         date: new Date(),
-        nickName: 'liam',
+        nickName: name.slice(0, 5),
+        image,
       },
     ];
   } else {

@@ -9,11 +9,21 @@ export const usePokemonStore = create<PokemonState>()(
     (set, get) => ({
       pokemons: [],
 
-      addPokemon: name => {
+      addPokemon: (name, image) => {
         const currentPokemonsCollection = get().pokemons;
         const updatedCollection = addPokemonToCollection(
           currentPokemonsCollection,
           name,
+          image,
+        );
+        set({pokemons: updatedCollection});
+      },
+
+      isFavorite: name => {
+        const updatedCollection = get().pokemons.map(pokemon =>
+          pokemon.name === name
+            ? {...pokemon, isFavorite: !pokemon.isFavorite}
+            : pokemon,
         );
         set({pokemons: updatedCollection});
       },

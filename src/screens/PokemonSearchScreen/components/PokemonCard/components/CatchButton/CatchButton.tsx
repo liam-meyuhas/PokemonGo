@@ -39,8 +39,8 @@ const CatchButton: React.FC<CatchButtonProps> = ({name}) => {
         borderRadius={30}
         height={120}
         width={50}
-        alignItems="center"
-        mt={2}>
+        mt={2}
+        alignItems="center">
         <FastImage
           source={require('../../../../../../assets/images/PokemonLauncher.gif')}
           style={{width: 130, height: 70, transform: [{rotate: '180deg'}]}}

@@ -12,7 +12,7 @@ const PokemonStatsSection: React.FC<{height?: number; weight?: number}> = ({
       alignItems="center"
       justifyContent="center"
       space={10}
-      mt={6}
+      mt={4}
       ml={5}>
       <PokemonDetails title="Height" description={`${height}m`} />
       <VStack alignItems="center" justifyContent="center">

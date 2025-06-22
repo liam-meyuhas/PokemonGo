@@ -51,7 +51,7 @@ const PokemonCard: React.FC<Pokemon> = ({
 
         <PokemonStatsSection height={height} weight={weight} />
 
-        <HStack alignItems="center" justifyContent="center" space={10} mr={5}>
+        <HStack alignItems="center" justifyContent="center" space={10} mr={4}>
           <PokemonDetails title="Attack" description="rocket" />
           <CatchButton name={name} />
           <PokemonDetails title="speed" description="15m" />

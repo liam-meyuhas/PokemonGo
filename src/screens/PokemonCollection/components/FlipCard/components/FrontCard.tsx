@@ -2,9 +2,10 @@ import {Box, Text, VStack} from 'native-base';
 import React from 'react';
 import {FrontCardProps} from './types/frontCardTypes';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Image, Pressable, StyleSheet} from 'react-native';
+import {Image, Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {usePokemonStore} from '../../../../../story/usePokemonCollectoin';
+import {frontCardStyles} from './styles/frontCard.type';
 
 const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
   const isFavorite = usePokemonStore(state => state.isFavorite);
@@ -22,7 +23,7 @@ const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
       ]}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 1}}
-      style={styles2.borderWrapper}>
+      style={frontCardStyles.borderWrapper}>
       <LinearGradient
         colors={[
           '#17214A',
@@ -35,7 +36,7 @@ const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
         ]}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
-        style={styles2.innerCard}>
+        style={frontCardStyles.innerCard}>
         <VStack space={1} alignItems="center">
           <Text bold fontSize="lg" color="#0274DE" fontWeight="extrabold">
             {pokemon.nickName}
@@ -78,30 +79,3 @@ const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
 };
 
 export default FrontCard;
-export const styles2 = StyleSheet.create({
-  cardContainer: {
-    position: 'absolute',
-    width: 160,
-    height: 220,
-    borderRadius: 12,
-    overflow: 'hidden',
-    backfaceVisibility: 'hidden',
-  },
-  borderWrapper: {
-    flex: 1,
-    borderRadius: 12,
-    padding: 8,
-  },
-  innerCard: {
-    flex: 1,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: {width: 0, height: 2},
-    shadowRadius: 4,
-    elevation: 5,
-  },
-});

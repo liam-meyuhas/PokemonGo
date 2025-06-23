@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, VStack, HStack} from 'native-base';
+import {Box, VStack, HStack, Text} from 'native-base';
 import {usePokemonCardStyles} from './hooks/usePokemonCardStyles';
 import CatchButton from './components/CatchButton/CatchButton';
 import {Pokemon} from '../../../../types/pokemon';
@@ -9,6 +9,7 @@ import PokemonName from './components/PokemonName/PokemonName';
 import PokemonStatsSection from './components/PokemonStatsSection/PokemonStatsSection';
 import PokemonCatchCount from './components/PokemonCatchCount/PokemonCatchCount';
 import PokemonImage from './components/PokemonImage/PokemonImage';
+import Attributes from './components/Attributes/Attributes';
 
 const PokemonCard: React.FC<Pokemon> = ({
   name,
@@ -51,10 +52,14 @@ const PokemonCard: React.FC<Pokemon> = ({
 
         <PokemonStatsSection height={height} weight={weight} />
 
-        <HStack alignItems="center" justifyContent="center" space={10} mr={4}>
-          <PokemonDetails title="Attack" description="rocket" />
+        <HStack
+          alignItems="center"
+          justifyContent="space-evenly"
+          width="100%"
+          ml={10}>
+          <Attributes array={types} title="Types" />
           <CatchButton name={name} image={pokemonImage} />
-          <PokemonDetails title="speed" description="15m" />
+          <Attributes array={abilities} title="Abilities" />
         </HStack>
       </VStack>
     </Box>

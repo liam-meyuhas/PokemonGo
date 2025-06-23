@@ -17,7 +17,7 @@ const PokemonStatsSection: React.FC<{height?: number; weight?: number}> = ({
       <PokemonDetails title="Height" description={`${height}m`} />
       <VStack alignItems="center" justifyContent="center">
         <Text fontSize="lg" color="#8A0303">
-          Type
+          Power
         </Text>
         <Image
           source={require('../../../../../../assets/images/PokemonPower.png')}

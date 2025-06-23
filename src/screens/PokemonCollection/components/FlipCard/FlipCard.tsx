@@ -1,19 +1,11 @@
 import React, {useRef, useState} from 'react';
-import {
-  Animated,
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
-import FrontCard, {styles2} from './components/FrontCard';
+import {Animated, Pressable} from 'react-native';
+import FrontCard from './components/FrontCard';
 import BackCard from './components/BackCard';
 import {styles} from './styles/flipCardStyles';
 import {FlipCardProps} from './types/flipCardTypes';
 import {Box} from 'native-base';
-import {usePokemonStore} from '../../../../story/usePokemonCollectoin';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {frontCardStyles} from './components/styles/frontCard.type';
 
 const FlipCard: React.FC<FlipCardProps> = ({pokemon}) => {
   const flipAnimation = useRef(new Animated.Value(0)).current;
@@ -42,7 +34,7 @@ const FlipCard: React.FC<FlipCardProps> = ({pokemon}) => {
       <Box style={styles.cardContainer}>
         <Animated.View
           style={[
-            styles2.cardContainer,
+            frontCardStyles.cardContainer,
             {transform: [{rotateY: frontInterpolate}]},
           ]}>
           <FrontCard pokemon={pokemon} />

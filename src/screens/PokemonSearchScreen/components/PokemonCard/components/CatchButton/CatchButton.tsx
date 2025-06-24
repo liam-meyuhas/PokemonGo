@@ -1,11 +1,12 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Animated} from 'react-native';
-import {Box, Image, Pressable} from 'native-base';
-import {startAnimation} from './utils/catchPokemon';
+import {Box, HStack, Image, Pressable, Text} from 'native-base';
+import {startAnimation} from './utils/catchPokemon.utils';
 import CatchBall from '../../../../../../assets/images/CatchBall.png';
-import {CatchButtonProps} from './types/catchButtonTypes';
+import {CatchButtonProps} from './types/catchButton.type';
 import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
 import FastImage from 'react-native-fast-image';
+import PokemonPoup from './components/PokemonPoup';
 
 const CatchButton: React.FC<CatchButtonProps> = ({name, image}) => {
   const translateY = useRef(new Animated.Value(0)).current;
@@ -24,34 +25,52 @@ const CatchButton: React.FC<CatchButtonProps> = ({name, image}) => {
     addPokemon(name, image);
   };
 
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (isCaught) {
+      setShowPopup(true);
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+        setIsCaught(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isCaught]);
+
   return (
-    <Pressable
-      onPress={() =>
-        startAnimation(
-          rotateValue,
-          translateY,
-          setIsCaught,
-          name,
-          image,
-          handleAddPokemon,
-        )
-      }>
-      <Box
-        backgroundColor="#8A0303"
-        borderRadius={30}
-        height={120}
-        width={50}
-        mt={2}
-        alignItems="center">
-        <FastImage
-          source={require('../../../../../../assets/images/PokemonLauncher.gif')}
-          style={{width: 130, height: 70, transform: [{rotate: '180deg'}]}}
-        />
-        <Animated.View style={{transform: [{translateY}, {rotate}]}}>
-          <Image source={CatchBall} alt="Catch Ball" height={12} width={12} />
-        </Animated.View>
-      </Box>
-    </Pressable>
+    <>
+      {showPopup && <PokemonPoup image={image} />}
+
+      <Pressable
+        onPress={() =>
+          startAnimation(
+            rotateValue,
+            translateY,
+            setIsCaught,
+            name,
+            image,
+            handleAddPokemon,
+          )
+        }>
+        <Box
+          backgroundColor="#8A0303"
+          borderRadius={30}
+          height={120}
+          width={50}
+          mt={2}
+          alignItems="center">
+          <FastImage
+            source={require('../../../../../../assets/gifs/PokemonLauncher.gif')}
+            style={{width: 130, height: 70, transform: [{rotate: '180deg'}]}}
+          />
+          <Animated.View style={{transform: [{translateY}, {rotate}]}}>
+            <Image source={CatchBall} alt="Catch Ball" height={12} width={12} />
+          </Animated.View>
+        </Box>
+      </Pressable>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import {PokemonCollection} from '../../../../../types/pokemon';
+import {PokemonCollection} from '../../../../../types/pokemon.type';
 import {SortDirection} from '../types/FilterAndSortCollection.type';
 
 export const filterAndSortPokemons = (

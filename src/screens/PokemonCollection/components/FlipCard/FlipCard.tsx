@@ -2,8 +2,8 @@ import React, {useRef, useState} from 'react';
 import {Animated, Pressable} from 'react-native';
 import FrontCard from './components/FrontCard';
 import BackCard from './components/BackCard';
-import {styles} from './styles/flipCardStyles';
-import {FlipCardProps} from './types/flipCardTypes';
+import {styles} from './styles/flipCard.style';
+import {FlipCardProps} from './types/flipCard.type';
 import {Box} from 'native-base';
 import {frontCardStyles} from './components/styles/frontCard.type';
 

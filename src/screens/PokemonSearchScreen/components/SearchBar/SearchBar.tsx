@@ -4,8 +4,8 @@ import {Box, useColorMode} from 'native-base';
 import SearchBall from '../../../../assets/images/SearchBall.png';
 import DarkSearchBall from '../../../../assets/images/DarkSearchBall.png';
 import useSearchStyle from '../../hooks/useSearchStyle';
-import {styles} from './styles/searchBarStyles';
-import {SearchBarProps} from './types/searchBarTypes';
+import {styles} from './styles/searchBar.style';
+import {SearchBarProps} from './types/searchBar.type';
 
 const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,

@@ -1,9 +1,9 @@
-import {PokemonCollection} from '../../types/pokemon';
+import {PokemonCollection} from '../../types/pokemon.type';
 
 export const addPokemonToCollection = (
   pokemons: PokemonCollection[],
   name: string,
-  image: string
+  image: string,
 ): PokemonCollection[] => {
   const pokemonIndex = pokemons.findIndex(pokemon => pokemon.name === name);
 

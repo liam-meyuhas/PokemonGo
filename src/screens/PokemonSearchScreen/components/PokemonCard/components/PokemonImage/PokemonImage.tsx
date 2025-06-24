@@ -1,7 +1,7 @@
 import {Pressable} from 'native-base';
 import React, {useRef} from 'react';
 import {Animated, ImageBackground} from 'react-native';
-import {startAnimation} from '../../utils/pokemonAnimation';
+import {startAnimation} from '../../utils/pokemonAnimation.utils';
 import StarBackground from '../../../../../../assets/images/StarBackground.png';
 
 const PokemonImage: React.FC<{pokemonImage: string}> = ({pokemonImage}) => {

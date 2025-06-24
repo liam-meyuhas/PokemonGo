@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Pokemon} from '../../../types/pokemon';
+import {Pokemon} from '../../../types/pokemon.type';
 
 export const usePokemonSearch = () => {
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ export const usePokemonSearch = () => {
         pokemonImage: data.sprites.front_shiny,
         types: data.types.map((t: any) => t.type.name),
         abilities: data.abilities.map((a: any) => a.ability.name),
-        height: data.height, 
+        height: data.height,
         weight: data.weight,
       });
     } catch (error) {

@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 import {persist, createJSONStorage} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {PokemonState} from './types/pokemonsCollectionTypes';
+import {PokemonState} from './types/pokemonsCollection.type';
 import {addPokemonToCollection} from './services/addPokemonToCollection ';
 
 export const usePokemonStore = create<PokemonState>()(

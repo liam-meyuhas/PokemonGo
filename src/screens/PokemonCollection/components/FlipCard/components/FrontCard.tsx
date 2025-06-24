@@ -1,6 +1,6 @@
 import {Box, Text, VStack} from 'native-base';
 import React from 'react';
-import {FrontCardProps} from './types/frontCardTypes';
+import {FrontCardProps} from './types/frontCard.type';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';

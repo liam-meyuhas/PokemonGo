@@ -1,4 +1,4 @@
-import {PokemonCollection} from '../../types/pokemon';
+import {PokemonCollection} from '../../types/pokemon.type';
 
 export type PokemonState = {
   pokemons: PokemonCollection[];

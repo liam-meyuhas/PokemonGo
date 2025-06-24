@@ -1,31 +1,5 @@
-// import React from 'react';
-// import {HeaderProps} from './types/HeaderTypes';
-// import {Box, Image, Heading, HStack, useColorMode, Button} from 'native-base';
-// import {ImageSourcePropType} from 'react-native';
-// import pokemonHeaderImage from '../../assets/images/pokemonHeaderImage.png';
-
-// const Header: React.FC<HeaderProps> = ({title = 'liam'}) => {
-//   const {colorMode, toggleColorMode} = useColorMode();
-//   return (
-//     <Box bg="rgb(50, 143, 173)" p={10} shadow={2}>
-//       <HStack justifyContent="space-between" alignItems="center" space={5}>
-//         {/* <Heading size="md">שלום, {title}</Heading>
-//         <Image
-//           source={pokemonHeaderImage as ImageSourcePropType}
-//           alt="Pokemon Header"
-//           size="sm"
-//           width="40%"
-//         /> */}
-//         <Button onPress={toggleColorMode}>
-//           Switch to {colorMode === 'light' ? 'Dark' : 'Light'} Mode
-//         </Button>
-//       </HStack>
-//     </Box>
-//   );
-// };
-// export default Header;
 import React from 'react';
-import {HeaderProps} from './types/headerTypes';
+import {HeaderProps} from './types/Header.style';
 import {
   Box,
   Heading,
@@ -37,7 +11,7 @@ import {
 import pokemonHeaderImage from '../../assets/images/pokemonHeaderImage.png';
 import pokemonHeaderImageDarkMode from '../../assets/images/PokemonDarkMode.png';
 import {Image} from 'react-native';
-import {styles} from './styles/headerStyles';
+import {styles} from './styles/header.style';
 
 const Header: React.FC<HeaderProps> = ({title = 'liam'}) => {
   const {colorMode, toggleColorMode} = useColorMode();

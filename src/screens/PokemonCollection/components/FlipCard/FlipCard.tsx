@@ -32,7 +32,7 @@ const FlipCard: React.FC<FlipCardProps> = ({pokemon}) => {
   return (
     <Pressable onPress={flipCard}>
       <Box style={styles.cardContainer}>
-        <Animated.View
+        {/* <Animated.View
           style={[
             frontCardStyles.cardContainer,
             {transform: [{rotateY: frontInterpolate}]},
@@ -43,7 +43,8 @@ const FlipCard: React.FC<FlipCardProps> = ({pokemon}) => {
         <Animated.View
           style={[styles.cardBack, {transform: [{rotateY: backInterpolate}]}]}>
           <BackCard />
-        </Animated.View>
+        </Animated.View> */}
+        <FrontCard pokemon={pokemon} />
       </Box>
     </Pressable>
   );

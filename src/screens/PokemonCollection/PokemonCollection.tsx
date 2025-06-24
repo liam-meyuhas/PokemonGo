@@ -1,61 +1,58 @@
 import React, {useState} from 'react';
 import {usePokemonStore} from '../../story/usePokemonCollectoin';
-import {Box, HStack, ScrollView, Switch, Text} from 'native-base';
+import {Box, HStack, ScrollView} from 'native-base';
 import FlipCard from './components/FlipCard/FlipCard';
 import {ImageBackground, TextInput} from 'react-native';
-import {Button} from 'native-base';
+import FilterAndSortCollection from './components/FilterAndSortCollection/FilterAndSortCollection';
+import {SortDirection} from './components/FilterAndSortCollection/types/FilterAndSortCollection.type';
+import {filterAndSortPokemons} from './components/FilterAndSortCollection/utils/FilterAndSortCollection.utils';
 
 const PokemonScreen = () => {
   const [search, setSearch] = useState('');
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
-  const [sortByNicknameAsc, setSortByNicknameAsc] = useState(true);
+  const [sortByNickname, setSortByNickname] = useState(false);
+  const [sortByDate, setSortByDate] = useState<SortDirection>(null);
 
   const pokemons = usePokemonStore(state => state.pokemons);
 
-  const filteredPokemons = pokemons
-    .filter(pokemon =>
-      pokemon.nickName.toLowerCase().includes(search.toLowerCase()),
-    )
-    .filter(pokemon => !showOnlyFavorites || pokemon.isFavorite)
-    .sort((a, b) => {
-      return sortByNicknameAsc
-        ? a.nickName.localeCompare(b.nickName)
-        : b.nickName.localeCompare(a.nickName);
-    });
+  const filteredPokemons = filterAndSortPokemons(
+    pokemons,
+    search,
+    showOnlyFavorites,
+    sortByNickname,
+    sortByDate,
+  );
 
   return (
-    <ScrollView>
-      <Box flex={1} alignItems="center">
-        <ImageBackground
-          source={require('../../assets/images/PokemonCollectionBackground.png')}
-          style={{height: '100%', width: '100%'}}>
-          <TextInput
-            placeholder="חפש לפי כינוי"
-            value={search}
-            onChangeText={setSearch}
-            style={{
-              backgroundColor: 'white',
-              padding: 10,
-              borderRadius: 8,
-              margin: 10,
-            }}
-          />
-          <Button
-            mt={2}
-            mx={4}
-            onPress={() => setSortByNicknameAsc(prev => !prev)}
-            colorScheme="rose">
-            מיין לפי כינוי ({sortByNicknameAsc ? 'א-ת' : 'ת-א'})
-          </Button>
-          <HStack space={2} alignItems="center" ml={4} mt={2}>
-            <Text fontSize="md">הצג רק מועדפים</Text>
-            <Switch
-              size="md"
-              colorScheme="rose"
-              isChecked={showOnlyFavorites}
-              onToggle={() => setShowOnlyFavorites(prev => !prev)}
+    <ImageBackground
+      source={require('../../assets/images/PokemonCollectionBackground.png')}
+      style={{height: '100%', width: '100%'}}>
+      <ScrollView>
+        <Box flex={1} alignItems="center">
+          <HStack p={2} alignItems="center" justifyContent="flex-end">
+            <FilterAndSortCollection
+              showOnlyFavorites={showOnlyFavorites}
+              setShowOnlyFavorites={setShowOnlyFavorites}
+              sortByNickname={sortByNickname}
+              setSortByNickname={setSortByNickname}
+              sortByDate={sortByDate}
+              setSortByDate={setSortByDate}
+            />
+
+            <TextInput
+              placeholder="חפש לפי כינוי"
+              value={search}
+              onChangeText={setSearch}
+              style={{
+                width: '70%',
+                backgroundColor: 'white',
+                padding: 10,
+                borderRadius: 8,
+                margin: 10,
+              }}
             />
           </HStack>
+
           <HStack
             ml={5}
             p={4}
@@ -66,9 +63,9 @@ const PokemonScreen = () => {
               <FlipCard key={pokemon.name} pokemon={pokemon} />
             ))}
           </HStack>
-        </ImageBackground>
-      </Box>
-    </ScrollView>
+        </Box>
+      </ScrollView>
+    </ImageBackground>
   );
 };
 

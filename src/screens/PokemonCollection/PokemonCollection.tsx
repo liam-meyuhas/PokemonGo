@@ -7,7 +7,7 @@ import FilterAndSortCollection from './components/FilterAndSortCollection/Filter
 import {SortDirection} from './components/FilterAndSortCollection/types/FilterAndSortCollection.type';
 import {filterAndSortPokemons} from './components/FilterAndSortCollection/utils/FilterAndSortCollection.utils';
 
-const PokemonScreen = () => {
+const PokemonCollectionScreen = () => {
   const [search, setSearch] = useState('');
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const [sortByNickname, setSortByNickname] = useState(false);
@@ -69,4 +69,4 @@ const PokemonScreen = () => {
   );
 };
 
-export default PokemonScreen;
+export default PokemonCollectionScreen;

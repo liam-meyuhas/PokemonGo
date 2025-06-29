@@ -27,6 +27,13 @@ export const usePokemonStore = create<PokemonState>()(
         );
         set({pokemons: updatedCollection});
       },
+
+      changeNickName: (newName,name) => {
+        const updatedCollection = get().pokemons.map(pokemon => 
+          pokemon.name === name ? {...pokemon , nickName: newName} : pokemon
+        );
+        set({pokemons: updatedCollection});
+      }
     }),
     {
       name: 'pokemon-storage',

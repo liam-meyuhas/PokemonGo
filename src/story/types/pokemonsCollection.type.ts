@@ -4,4 +4,5 @@ export type PokemonState = {
   pokemons: PokemonCollection[];
   addPokemon: (name: string, image: string) => void;
   isFavorite: (name: string) => void;
+  changeNickName: (name:string , newName: string) => void
 };

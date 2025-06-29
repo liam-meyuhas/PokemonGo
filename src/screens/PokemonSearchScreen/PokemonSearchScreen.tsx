@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Box, Text, Spinner} from 'native-base';
-import useSearchStyle from './hooks/useSearchStyle';
 import SearchBar from './components/SearchBar/SearchBar';
 import PokemonCard from './components/PokemonCard/PokemonCard';
 import usePokemonSearch from './hooks/usePokemonSearch';
@@ -18,8 +17,6 @@ const PokemonSearchScreen = () => {
   //   }
   // };
   // clearPokemonStorage();
-
-  const {bgColor} = useSearchStyle();
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -48,9 +45,8 @@ const PokemonSearchScreen = () => {
           <ImageBackground
             source={require('../../assets/images/PokemonDefaultImage.png')}
             style={{
-              height: '100%',
+              height: '85%',
               width: '100%',
-              borderRadius: 12,
               overflow: 'hidden',
               marginTop: 10,
             }}>
@@ -78,6 +74,7 @@ const PokemonSearchScreen = () => {
         )}
         {pokemon && (
           <PokemonCard
+            key={pokemon.name}
             name={pokemon.name}
             pokemonImage={pokemon.pokemonImage}
             types={pokemon.types}

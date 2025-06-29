@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, VStack} from 'native-base';
-import {ImageBackground} from 'react-native';
-import FastImage from 'react-native-fast-image';
+
 
 type PokemonDetailsProp = {
   title: string;

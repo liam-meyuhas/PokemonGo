@@ -3,7 +3,6 @@ import React from 'react';
 import {Box, useColorMode} from 'native-base';
 import SearchBall from '../../../../assets/images/SearchBall.png';
 import DarkSearchBall from '../../../../assets/images/DarkSearchBall.png';
-import useSearchStyle from '../../hooks/useSearchStyle';
 import {styles} from './styles/searchBar.style';
 import {SearchBarProps} from './types/searchBar.type';
 
@@ -12,8 +11,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
   setSearchTerm,
   fetchPokemon,
 }) => {
-  const {colorMode} = useColorMode();
-  const {placeholderColor, textColor} = useSearchStyle();
 
   return (
     <Box
@@ -24,20 +21,15 @@ const SearchBar: React.FC<SearchBarProps> = ({
       alignItems="center">
       <TextInput
         placeholder="חפש פוקימון"
-        placeholderTextColor={placeholderColor}
         style={{
           ...styles.input,
-          color: textColor,
         }}
         value={searchTerm}
         onChangeText={setSearchTerm}
         onSubmitEditing={() => fetchPokemon(searchTerm)}
       />
-      {colorMode === 'light' ? (
         <Image source={SearchBall} alt="Search Icon" style={styles.img} />
-      ) : (
-        <Image source={DarkSearchBall} alt="Search Icon" style={styles.img} />
-      )}
+      
     </Box>
   );
 };

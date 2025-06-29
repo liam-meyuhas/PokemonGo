@@ -1,9 +1,7 @@
 import React from 'react';
 import {Box, VStack, HStack} from 'native-base';
-import {usePokemonCardStyles} from './hooks/usePokemonCardStyles';
 import CatchButton from './components/CatchButton/CatchButton';
 import {Pokemon} from '../../../../types/pokemon.type';
-import PokemonDetails from './components/PokemonDetails/PokemonDetails';
 import PokemonCardDesign from './components/PokemonCardDesign/PokemonCardDesign';
 import PokemonName from './components/PokemonName/PokemonName';
 import PokemonStatsSection from './components/PokemonStatsSection/PokemonStatsSection';
@@ -19,20 +17,8 @@ const PokemonCard: React.FC<Pokemon> = ({
   weight,
   height,
 }) => {
-  const {
-    bgColor,
-    titleColor,
-    typeTextColor,
-    typeBgColor,
-    abilityBoxBg,
-    abilityTitleColor,
-    abilityTextBg,
-    abilityTextColor,
-  } = usePokemonCardStyles();
-
   return (
     <Box
-      bg={bgColor}
       rounded="2xl"
       overflow="hidden"
       shadow={8}

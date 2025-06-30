@@ -1,4 +1,5 @@
-export type SortDirection = 'asc' | 'desc' | null;
+// export type SortDirection = 'asc' | 'desc' | null;
+export type SortDirection = 'desc' | null;
 
 export type FilterAndSortCollectionProps = {
   sortByNickname: boolean;

@@ -8,10 +8,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import {
   FADEBACKGROUND,
   SEARCHSCREEN,
-} from './constants/pokemonSearchScreen.constants';
-import {style} from './styles/pokemonSearchScreen.style';
+} from './constants/pokemonSearch.constants';
+import {style} from './styles/pokemonSearch.style';
 
-const PokemonSearchScreen = () => {
+const PokemonSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const {loading, error, pokemon, fetchPokemon} = usePokemonSearch();
@@ -67,4 +67,4 @@ const PokemonSearchScreen = () => {
   );
 };
 
-export default PokemonSearchScreen;
+export default PokemonSearch;

@@ -18,11 +18,11 @@ export const filterAndSortPokemons = (
     filtered = filtered.sort((a, b) => a.nickName.localeCompare(b.nickName));
   }
 
-  if (sortByDate === 'asc' || sortByDate === 'desc') {
+  if (sortByDate === 'desc') {
     filtered = filtered.sort((a, b) => {
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
-      return sortByDate === 'asc' ? dateA - dateB : dateB - dateA;
+      return dateB - dateA;
     });
   }
 

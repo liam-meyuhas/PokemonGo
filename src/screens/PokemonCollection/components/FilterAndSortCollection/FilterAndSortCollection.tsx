@@ -31,19 +31,13 @@ const FilterAndSortCollection: React.FC<FilterAndSortCollectionProps> = ({
       </Pressable>
       <Pressable
         onPress={() =>
-          setSortByDate(prev =>
-            prev === 'asc' ? 'desc' : prev === 'desc' ? null : 'asc',
-          )
+          setSortByDate(prev => (prev === 'desc' ? null : 'desc'))
         }>
-        {sortByDate ? (
-          <ArrowIcon
-            name={sortByDate === 'asc' ? 'arrow-up' : 'arrow-down'}
-            size={18}
-            color="#62D2FE"
-          />
-        ) : (
-          <BookIcon size={22} name="clock" color="#62D2FE" />
-        )}
+        <ArrowIcon
+          name={sortByDate ? 'arrow-down' : 'arrow-up'}
+          size={18}
+          color="#62D2FE"
+        />
       </Pressable>
     </HStack>
   );

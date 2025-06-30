@@ -2,8 +2,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Header from '../../Header/Header';
 import {ROUTES} from '../enums/navigation.enum';
-import PokemonSearchScreen from '../../../screens/PokemonSearchScreen/PokemonSearchScreen';
 import PokemonCollectionScreen from '../../../screens/PokemonCollection/PokemonCollection';
+import PokemonSearchScreen from '../../../screens/PokemonSearch/PokemonSearch';
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();

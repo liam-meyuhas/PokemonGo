@@ -12,8 +12,6 @@ export const startAnimation = (
   image: string,
   handleAddPokemon: (name: string, image: string) => void,
 ): void => {
-  console.log(image, 'animation');
-
   rotateValue.setValue(0);
   Animated.sequence([
     Animated.parallel([

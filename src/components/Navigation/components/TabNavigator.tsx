@@ -11,7 +11,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        header: () => <Header title="ליאם מיוחס" />,
+        header: () => <Header title="liam meyuhas" />,
         tabBarStyle: {
           backgroundColor: 'rgba(255, 255, 255, 0.3)',
           position: 'absolute',

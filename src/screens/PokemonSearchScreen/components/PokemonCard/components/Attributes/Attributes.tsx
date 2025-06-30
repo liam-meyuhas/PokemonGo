@@ -9,7 +9,7 @@ const Attributes: React.FC<AttributesProp> = ({array, title}) => {
         {title}
       </Text>
       {array.map(item => (
-        <Text fontSize="lg" color="#8A0303" fontWeight="bold">
+        <Text key={item} fontSize="lg" color="#8A0303" fontWeight="bold">
           {item}
         </Text>
       ))}

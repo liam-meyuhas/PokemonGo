@@ -7,3 +7,10 @@ export const SEARCHSCREEN = [
   '#F7E306',
   '#FEA914',
 ];
+
+export const FADEBACKGROUND = [
+  'rgba(255,255,255,1)',
+  'rgba(255,255,255,0.8)',
+  'rgba(255,255,255,0.5)',
+  'rgba(255,255,255,0)',
+];

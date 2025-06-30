@@ -23,7 +23,7 @@ export const usePokemonSearch = () => {
 
       setPokemon({
         name: data.name,
-        pokemonImage: data.sprites.front_shiny,
+        pokemonImage: data.sprites.front_default,
         types: data.types.map((t: any) => t.type.name),
         abilities: data.abilities.map((a: any) => a.ability.name),
         height: data.height,

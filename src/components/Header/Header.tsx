@@ -6,9 +6,9 @@ import {Image} from 'react-native';
 
 const Header: React.FC<HeaderProps> = ({title = 'liam'}) => {
   return (
-    <Box p={5} color="black">
+    <Box p={3} color="black" bgColor="#FFFFF0">
       <HStack justifyContent="space-between" alignItems="center" space={5}>
-        <Heading size="md">שלום, {title}</Heading>
+        <Heading size="md">Hello, {title}</Heading>
         <Image
           source={pokemonHeaderImage}
           alt="Toggle Theme"

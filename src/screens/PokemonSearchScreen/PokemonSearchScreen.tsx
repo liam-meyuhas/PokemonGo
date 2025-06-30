@@ -28,6 +28,25 @@ const PokemonSearchScreen = () => {
       start={{x: 0, y: 0}}
       end={{x: 1, y: 1}}
       style={{flex: 1}}>
+      <LinearGradient
+        colors={[
+          'rgba(255,255,255,1)',
+          'rgba(255,255,255,0.8)',
+          'rgba(255,255,255,0.5)',
+          'rgba(255,255,255,0)',
+        ]}
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 0.3}}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '30%',
+          zIndex: 10,
+        }}
+        pointerEvents="none"
+      />
       <Box flex={1} px={3} pt={2}>
         <SearchBar
           searchTerm={searchTerm}

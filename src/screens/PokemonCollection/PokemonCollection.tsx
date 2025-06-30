@@ -7,6 +7,8 @@ import FilterAndSortCollection from './components/FilterAndSortCollection/Filter
 import {SortDirection} from './components/FilterAndSortCollection/types/FilterAndSortCollection.type';
 import {filterAndSortPokemons} from './components/FilterAndSortCollection/utils/FilterAndSortCollection.utils';
 import LinearGradient from 'react-native-linear-gradient';
+import {FADEBACKGROUNG} from './constants/pokemonCollection.constants';
+import {style} from './styles/pokemonCollection.style';
 
 const PokemonCollectionScreen = () => {
   const [search, setSearch] = useState('');
@@ -27,24 +29,12 @@ const PokemonCollectionScreen = () => {
   return (
     <ImageBackground
       source={require('../../assets/images/PokemonCollectionBackground.png')}
-      style={{height: '100%', width: '100%'}}>
+      style={style.image}>
       <LinearGradient
-        colors={[
-          'rgba(255, 255, 240, 1)',
-          'rgba(255, 255, 240, 0.8)',
-          'rgba(255, 255, 240, 0.5)',
-          'rgba(255, 255, 240, 0)',
-        ]}
+        colors={FADEBACKGROUNG}
         start={{x: 0, y: 0}}
         end={{x: 0, y: 0.27}}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '27%',
-          zIndex: 10,
-        }}
+        style={style.fadeBacground}
         pointerEvents="none"
       />
       <ScrollView>
@@ -63,13 +53,7 @@ const PokemonCollectionScreen = () => {
               placeholder="חפש לפי כינוי"
               value={search}
               onChangeText={setSearch}
-              style={{
-                width: '70%',
-                backgroundColor: 'white',
-                padding: 10,
-                borderRadius: 8,
-                margin: 10,
-              }}
+              style={style.input}
             />
           </HStack>
 

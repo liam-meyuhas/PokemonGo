@@ -4,21 +4,14 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PokemonCard from './components/PokemonCard/PokemonCard';
 import usePokemonSearch from './hooks/usePokemonSearch';
 import {ImageBackground} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
-import {SEARCHSCREEN} from './constants/pokemonSearchScreen.constants';
+import {
+  FADEBACKGROUND,
+  SEARCHSCREEN,
+} from './constants/pokemonSearchScreen.constants';
+import {style} from './styles/pokemonSearchScreen.style';
 
 const PokemonSearchScreen = () => {
-  // const clearPokemonStorage = async () => {
-  //   try {
-  //     await AsyncStorage.removeItem('pokemon-storage');
-  //     console.log('Pokemon storage cleared!');
-  //   } catch (error) {
-  //     console.error('Failed to clear pokemon storage:', error);
-  //   }
-  // };
-  // clearPokemonStorage();
-
   const [searchTerm, setSearchTerm] = useState('');
 
   const {loading, error, pokemon, fetchPokemon} = usePokemonSearch();
@@ -29,22 +22,10 @@ const PokemonSearchScreen = () => {
       end={{x: 1, y: 1}}
       style={{flex: 1}}>
       <LinearGradient
-        colors={[
-          'rgba(255,255,255,1)',
-          'rgba(255,255,255,0.8)',
-          'rgba(255,255,255,0.5)',
-          'rgba(255,255,255,0)',
-        ]}
+        colors={FADEBACKGROUND}
         start={{x: 0, y: 0}}
         end={{x: 0, y: 0.3}}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '30%',
-          zIndex: 10,
-        }}
+        style={style.fadeBackground}
         pointerEvents="none"
       />
       <Box flex={1} px={3} pt={2}>
@@ -56,22 +37,8 @@ const PokemonSearchScreen = () => {
         {!pokemon && (
           <ImageBackground
             source={require('../../assets/images/PokemonDefaultImage.png')}
-            style={{
-              height: '85%',
-              width: '100%',
-              overflow: 'hidden',
-              marginTop: 10,
-            }}>
-            <Text
-              style={{
-                position: 'absolute',
-                fontSize: 15,
-                color: 'white',
-                top: '10%',
-                left: '10%',
-              }}>
-              Select your pokemon
-            </Text>
+            style={style.image}>
+            <Text style={style.text}>Select your pokemon</Text>
           </ImageBackground>
         )}
         {loading && (

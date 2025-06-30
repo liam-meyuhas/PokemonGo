@@ -4,7 +4,7 @@ import {Box, Image, Pressable} from 'native-base';
 import {startAnimation} from './utils/catchPokemon.utils';
 import CatchBall from '../../../../../../assets/images/CatchBall.png';
 import {CatchButtonProps} from './types/catchButton.type';
-import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
+import {usePokemonStore} from '../../../../../../store/usePokemonCollectoin';
 import FastImage from 'react-native-fast-image';
 import PokemonPopup from './components/PokemonPopup';
 

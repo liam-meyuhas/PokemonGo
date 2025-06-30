@@ -1,7 +1,7 @@
 import {HStack, Text} from 'native-base';
 import React from 'react';
 import {Image} from 'react-native';
-import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
+import {usePokemonStore} from '../../../../../../store/usePokemonCollectoin';
 
 const PokemonCatchCount: React.FC<{name: string}> = ({name}) => {
   const pokemon = usePokemonStore(state => state.pokemons);

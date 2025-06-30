@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {usePokemonStore} from '../../story/usePokemonCollectoin';
+import {usePokemonStore} from '../../store/usePokemonCollectoin';
 import {Box, HStack, ScrollView} from 'native-base';
 import FlipCard from './components/FlipCard/FlipCard';
 import {ImageBackground, TextInput} from 'react-native';

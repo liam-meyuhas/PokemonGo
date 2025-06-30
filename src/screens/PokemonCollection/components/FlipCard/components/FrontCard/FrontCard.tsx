@@ -3,7 +3,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
+import {usePokemonStore} from '../../../../../../store/usePokemonCollectoin';
 import {frontCardStyles} from './styles/frontCard.type';
 import PokemonNickName from './components/PokemonNickName';
 import CaptureDate from './components/CaptureDate';

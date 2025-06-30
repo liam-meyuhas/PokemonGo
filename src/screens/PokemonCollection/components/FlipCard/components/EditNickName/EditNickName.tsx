@@ -1,7 +1,7 @@
 import {useForm} from 'react-hook-form';
 import {Button, Image} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
+import {usePokemonStore} from '../../../../../../store/usePokemonCollectoin';
 import React from 'react';
 import {PokemonCollection} from '../../../../../../types/pokemon.type';
 import LinearGradient from 'react-native-linear-gradient';

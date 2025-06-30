@@ -1,7 +1,8 @@
 import React from 'react';
 import {Box, HStack, Image, Text} from 'native-base';
+import {PokemonPopupProps} from '../types/catchButton.type';
 
-const PokemonPoup: React.FC<{image: string}> = ({image}) => {
+const PokemonPopup: React.FC<PokemonPopupProps> = ({image}) => {
   return (
     <Box
       position="absolute"
@@ -27,4 +28,4 @@ const PokemonPoup: React.FC<{image: string}> = ({image}) => {
   );
 };
 
-export default PokemonPoup;
+export default PokemonPopup;

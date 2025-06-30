@@ -1,12 +1,13 @@
-import { Text } from "native-base";
-import React from "react";
+import {Text} from 'native-base';
+import React from 'react';
+import {PokemonNameProps} from '../types/fronCard.type';
 
-const PokemonName:React.FC<{pokemonName: string}> = ({pokemonName}) => {
-    return(<>
-    <Text fontSize="lg" color="#0A8CC8" fontWeight="extrabold">
+const PokemonName: React.FC<PokemonNameProps> = ({pokemonName}) => {
+  return (
+    <>
+      <Text fontSize="lg" color="#0A8CC8" fontWeight="extrabold">
         {pokemonName}
       </Text>
-
       <Text
         fontSize="lg"
         color="#1DD3CC"
@@ -14,7 +15,9 @@ const PokemonName:React.FC<{pokemonName: string}> = ({pokemonName}) => {
         position="absolute"
         top="42.5%">
         {pokemonName}
-      </Text></>)
-}
+      </Text>
+    </>
+  );
+};
 
 export default PokemonName;

@@ -1,7 +1,8 @@
 import {Text} from 'native-base';
 import React from 'react';
+import {PokemonNameProps} from './types/pokemonName.type';
 
-const PokemonName: React.FC<{name: string}> = ({name}) => {
+const PokemonName: React.FC<PokemonNameProps> = ({name}) => {
   return (
     <>
       <Text

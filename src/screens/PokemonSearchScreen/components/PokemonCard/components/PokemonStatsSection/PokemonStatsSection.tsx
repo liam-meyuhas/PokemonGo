@@ -2,8 +2,9 @@ import {HStack, Text, VStack} from 'native-base';
 import React from 'react';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import {Image} from 'react-native';
+import {PokemonStatesSectionProp} from './types/pokemonStatesSection.type';
 
-const PokemonStatsSection: React.FC<{height?: number; weight?: number}> = ({
+const PokemonStatsSection: React.FC<PokemonStatesSectionProp> = ({
   height,
   weight,
 }) => {

@@ -1,12 +1,7 @@
 import React from 'react';
 import {Text, VStack} from 'native-base';
+import {PokemonDetailsProp} from './types/pokemonDetails.type';
 
-
-type PokemonDetailsProp = {
-  title: string;
-  description: string;
-  style?: string;
-};
 const PokemonDetails: React.FC<PokemonDetailsProp> = ({
   title,
   description,

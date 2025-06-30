@@ -1,11 +1,9 @@
 import React, {useRef, useState} from 'react';
 import {Animated, Pressable} from 'react-native';
 import FrontCard from './components/FrontCard/FrontCard';
-import BackCard from './components/BackCard';
 import {styles} from './styles/flipCard.style';
 import {FlipCardProps} from './types/flipCard.type';
 import {Box} from 'native-base';
-import {frontCardStyles} from './components/styles/frontCard.type';
 
 const FlipCard: React.FC<FlipCardProps> = ({pokemon}) => {
   const flipAnimation = useRef(new Animated.Value(0)).current;

@@ -6,6 +6,7 @@ import usePokemonSearch from './hooks/usePokemonSearch';
 import {ImageBackground} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
+import {SEARCHSCREEN} from './constants/pokemonSearchScreen.constants';
 
 const PokemonSearchScreen = () => {
   // const clearPokemonStorage = async () => {
@@ -23,15 +24,7 @@ const PokemonSearchScreen = () => {
   const {loading, error, pokemon, fetchPokemon} = usePokemonSearch();
   return (
     <LinearGradient
-      colors={[
-        '#F33F40',
-        '#F7E109',
-        '#E12D48',
-        '#F4721C',
-        '#CD2559',
-        '#F7E306',
-        '#FEA914',
-      ]}
+      colors={SEARCHSCREEN}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 1}}
       style={{flex: 1}}>

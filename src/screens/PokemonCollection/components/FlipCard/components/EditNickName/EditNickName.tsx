@@ -1,14 +1,19 @@
-import {Controller, useForm} from 'react-hook-form';
-import {Button, Image, TextInput, View} from 'react-native';
+import {useForm} from 'react-hook-form';
+import {Button, Image} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {usePokemonStore} from '../../../../../../story/usePokemonCollectoin';
 import React from 'react';
 import {PokemonCollection} from '../../../../../../types/pokemon.type';
 import LinearGradient from 'react-native-linear-gradient';
-import {Center, HStack, Pressable, Text, VStack} from 'native-base';
+import {Center, HStack, Text, VStack} from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {FormData} from './types/editNickName.type';
 import NewNickNameInput from './components/NewNickNameInput';
+import {style} from './styles/editNickName.style';
+import {
+  BACKGROUNDCOLORS,
+  BORDERCOLORS,
+} from '../FrontCard/constants/frontCard.constants';
 
 const EditNickName = () => {
   const changeNickName = usePokemonStore(state => state.changeNickName);
@@ -32,53 +37,18 @@ const EditNickName = () => {
     navigation.goBack();
   };
 
-  const BACKGROUNDCOLORS = [
-    '#17214A',
-    '#1A2332',
-    '#1184F6',
-    '#172538',
-    '#4E8FFB',
-    '#1B2951',
-    '#0967E3',
-  ];
-  const BORDERCOLORS = [
-    '#70FFFE',
-    '#042B83',
-    '#0F87E3',
-    '#11A0E7',
-    '#0593A9',
-    '#0560DA',
-    '#78C7FB',
-  ];
-
   return (
     <Center flex={1} bg="white">
       <LinearGradient
         colors={BORDERCOLORS}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
-        style={{
-          width: 350,
-          height: 550,
-          borderRadius: 16,
-          padding: 8,
-        }}>
+        style={style.cardContainer}>
         <LinearGradient
           colors={BACKGROUNDCOLORS}
           start={{x: 0, y: 0}}
           end={{x: 1, y: 1}}
-          style={{
-            flex: 1,
-            borderRadius: 16,
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: 16,
-            shadowColor: '#000',
-            shadowOpacity: 0.3,
-            shadowOffset: {width: 0, height: 4},
-            shadowRadius: 6,
-            elevation: 6,
-          }}>
+          style={style.background}>
           <VStack space={3} alignItems="center">
             <Text fontSize="lg" color="white">
               {pokemon.name}

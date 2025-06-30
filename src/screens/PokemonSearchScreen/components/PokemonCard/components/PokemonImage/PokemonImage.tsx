@@ -12,6 +12,7 @@ const PokemonImage: React.FC<{pokemonImage: string}> = ({pokemonImage}) => {
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   });
+
   return (
     <Pressable onPress={() => startAnimation(rotateValue, scaleValue)}>
       <ImageBackground source={StarBackground}>

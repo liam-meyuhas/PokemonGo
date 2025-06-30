@@ -3,6 +3,7 @@ import {persist, createJSONStorage} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {PokemonState} from './types/pokemonsCollection.type';
 import {addPokemonToCollection} from './services/addPokemonToCollection ';
+import {STORAGENAME} from './constants/store.constants';
 
 export const usePokemonStore = create<PokemonState>()(
   persist(
@@ -28,15 +29,15 @@ export const usePokemonStore = create<PokemonState>()(
         set({pokemons: updatedCollection});
       },
 
-      changeNickName: (newName,name) => {
-        const updatedCollection = get().pokemons.map(pokemon => 
-          pokemon.name === name ? {...pokemon , nickName: newName} : pokemon
+      changeNickName: (newName, name) => {
+        const updatedCollection = get().pokemons.map(pokemon =>
+          pokemon.name === name ? {...pokemon, nickName: newName} : pokemon,
         );
         set({pokemons: updatedCollection});
-      }
+      },
     }),
     {
-      name: 'pokemon-storage',
+      name: STORAGENAME,
       storage: createJSONStorage(() => AsyncStorage),
     },
   ),

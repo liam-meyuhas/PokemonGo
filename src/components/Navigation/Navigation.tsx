@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import EditNickName from '../../screens/PokemonCollection/components/FlipCard/components/EditNickName/EditNickName';
 import {ROUTES} from './enums/navigation.enum';
 import TabNavigator from './components/TabNavigator';

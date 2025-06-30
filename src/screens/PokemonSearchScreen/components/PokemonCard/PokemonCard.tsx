@@ -19,6 +19,7 @@ const PokemonCard: React.FC<Pokemon> = ({
 }) => {
   return (
     <Box
+      bgColor="#ED7013"
       rounded="2xl"
       overflow="hidden"
       shadow={8}

@@ -1,8 +1,7 @@
 import {TextInput, Image} from 'react-native';
 import React from 'react';
-import {Box, useColorMode} from 'native-base';
+import {Box} from 'native-base';
 import SearchBall from '../../../../assets/images/SearchBall.png';
-import DarkSearchBall from '../../../../assets/images/DarkSearchBall.png';
 import {styles} from './styles/searchBar.style';
 import {SearchBarProps} from './types/searchBar.type';
 
@@ -11,7 +10,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
   setSearchTerm,
   fetchPokemon,
 }) => {
-
   return (
     <Box
       style={styles.container}
@@ -28,8 +26,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         onChangeText={setSearchTerm}
         onSubmitEditing={() => fetchPokemon(searchTerm)}
       />
-        <Image source={SearchBall} alt="Search Icon" style={styles.img} />
-      
+      <Image source={SearchBall} alt="Search Icon" style={styles.img} />
     </Box>
   );
 };

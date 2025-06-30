@@ -1,13 +1,10 @@
 import {Text} from 'native-base';
 import React from 'react';
-import {Control, Controller, FieldErrors} from 'react-hook-form';
+import {Controller} from 'react-hook-form';
 import {TextInput} from 'react-native';
-import {FormData} from '../types/editNickName.type';
+import {EditNickNameProps} from '../types/editNickName.type';
 
-const NewNickNameInput: React.FC<{
-  control: Control<FormData>;
-  errors: FieldErrors<FormData>;
-}> = ({control, errors}) => {
+const NewNickNameInput: React.FC<EditNickNameProps> = ({control, errors}) => {
   return (
     <Controller
       control={control}

@@ -13,7 +13,7 @@ const TabNavigator = () => {
       screenOptions={{
         header: () => <Header title="ליאם מיוחס" />,
         tabBarStyle: {
-          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+          backgroundColor: 'rgba(255, 255, 255, 0.3)',
           position: 'absolute',
           elevation: 0,
           borderTopWidth: 1,

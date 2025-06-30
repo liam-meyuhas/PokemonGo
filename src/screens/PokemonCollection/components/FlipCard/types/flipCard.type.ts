@@ -1,5 +1,3 @@
-import {PokemonCollection} from '../../../../../types/pokemon.type';
+import {FrontCardProps} from '../components/FrontCard/types/fronCard.type';
 
-export type FlipCardProps = {
-  pokemon: PokemonCollection;
-};
+export type FlipCardProps = FrontCardProps;

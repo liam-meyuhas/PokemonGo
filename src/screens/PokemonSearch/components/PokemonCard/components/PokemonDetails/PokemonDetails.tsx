@@ -1,11 +1,10 @@
 import React from 'react';
 import {Text, VStack} from 'native-base';
-import {PokemonDetailsProp} from './types/pokemonDetails.type';
+import {PokemonDetailsProps} from './types/pokemonDetails.type';
 
-const PokemonDetails: React.FC<PokemonDetailsProp> = ({
+const PokemonDetails: React.FC<PokemonDetailsProps> = ({
   title,
   description,
-  style,
 }) => {
   return (
     <VStack alignItems="center" justifyContent="center">

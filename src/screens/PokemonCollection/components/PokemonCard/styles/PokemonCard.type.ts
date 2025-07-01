@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const frontCardStyles = StyleSheet.create({
+export const pokemonCardStyles = StyleSheet.create({
   borderWrapper: {
     flex: 1,
     borderRadius: 12,

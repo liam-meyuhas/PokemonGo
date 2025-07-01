@@ -1,17 +1,21 @@
 import {Pressable} from 'native-base';
-import React, {useRef} from 'react';
+import React, {useMemo, useRef} from 'react';
 import {Animated, ImageBackground} from 'react-native';
-import {startAnimation} from '../../utils/pokemonAnimation.utils';
+import {startAnimation} from './utils/pokemonAnimation.utils';
 import StarBackground from '../../../../../../assets/images/StarBackground.png';
 
 const PokemonImage: React.FC<{pokemonImage: string}> = ({pokemonImage}) => {
   const scaleValue = useRef(new Animated.Value(1)).current;
   const rotateValue = useRef(new Animated.Value(0)).current;
 
-  const rotate = rotateValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
-  });
+  const rotate = useMemo(
+    () =>
+      rotateValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: ['0deg', '360deg'],
+      }),
+    [rotateValue],
+  );
 
   return (
     <Pressable onPress={() => startAnimation(rotateValue, scaleValue)}>

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {Animated} from 'react-native';
 import {Box, Image, Pressable} from 'native-base';
 import {startAnimation} from './utils/catchPokemon.utils';
@@ -13,34 +13,29 @@ const CatchButton: React.FC<CatchButtonProps> = ({name, image}) => {
   const rotateValue = useRef(new Animated.Value(0)).current;
 
   const [isCaught, setIsCaught] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
 
   const addPokemon = usePokemonStore(state => state.addPokemon);
 
-  useEffect(() => {
-    if (isCaught) {
-      setShowPopup(true);
-      const timer = setTimeout(() => {
-        setShowPopup(false);
-        setIsCaught(false);
-      }, 3000);
+  const rotate = useMemo(
+    () =>
+      rotateValue.interpolate({
+        inputRange: [0, 1, 2, 3, 4],
+        outputRange: ['0deg', '360deg', '720deg', '1080deg', '1440deg'],
+      }),
+    [rotateValue],
+  );
 
-      return () => clearTimeout(timer);
-    }
-  }, [isCaught]);
-
-  const rotate = rotateValue.interpolate({
-    inputRange: [0, 1, 2, 3, 4],
-    outputRange: ['0deg', '360deg', '720deg', '1080deg', '1440deg'],
-  });
-
-  const handleAddPokemon = () => {
+  const handleAddPokemon = useCallback(() => {
     addPokemon(name, image);
-  };
+  }, [addPokemon, name, image]);
 
   return (
     <>
-      {showPopup && <PokemonPopup image={image} />}
+      <PokemonPopup
+        image={image}
+        isCaught={isCaught}
+        setIsCaught={setIsCaught}
+      />
 
       <Pressable
         onPress={() =>

@@ -10,6 +10,7 @@ import {
   SEARCHSCREEN,
 } from './constants/pokemonSearch.constants';
 import {style} from './styles/pokemonSearch.style';
+import PokemonDefaultImage from '../../assets/images/PokemonDefaultImage.png';
 
 const PokemonSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -35,9 +36,7 @@ const PokemonSearch = () => {
           fetchPokemon={fetchPokemon}
         />
         {!pokemon && (
-          <ImageBackground
-            source={require('../../assets/images/PokemonDefaultImage.png')}
-            style={style.image}>
+          <ImageBackground source={PokemonDefaultImage} style={style.image}>
             <Text style={style.text}>Select your pokemon</Text>
           </ImageBackground>
         )}

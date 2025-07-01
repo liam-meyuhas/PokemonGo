@@ -1,9 +1,7 @@
 import {useForm} from 'react-hook-form';
 import {Button, Image} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {usePokemonStore} from '../../../../../../store/usePokemonCollectoin';
 import React from 'react';
-import {PokemonCollection} from '../../../../../../types/pokemon.type';
 import LinearGradient from 'react-native-linear-gradient';
 import {Center, HStack, Text, VStack} from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -13,7 +11,9 @@ import {style} from './styles/editNickName.style';
 import {
   BACKGROUNDCOLORS,
   BORDERCOLORS,
-} from '../FrontCard/constants/frontCard.constants';
+} from '../constants/PokemonCard.constants';
+import {PokemonCollection} from '../../types/pokemon.type';
+import {usePokemonStore} from '../../store/usePokemonCollectoin';
 
 const EditNickName = () => {
   const changeNickName = usePokemonStore(state => state.changeNickName);

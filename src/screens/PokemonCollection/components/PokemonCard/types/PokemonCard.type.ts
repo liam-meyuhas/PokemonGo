@@ -1,4 +1,4 @@
-import {PokemonCollection} from '../../../../../../../types/pokemon.type';
+import {PokemonCollection} from '../../../../../types/pokemon.type';
 
 export type CaptureDateProps = {
   captureDate: Date;
@@ -12,4 +12,4 @@ export type PokemonNickNameProps = {
   pokemon: PokemonCollection;
 };
 
-export type FrontCardProps = PokemonNickNameProps;
+export type PokemonCardProps = PokemonNickNameProps;

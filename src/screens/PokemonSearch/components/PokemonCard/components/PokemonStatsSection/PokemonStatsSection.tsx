@@ -3,6 +3,7 @@ import React from 'react';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 import {Image} from 'react-native';
 import {PokemonStatesSectionProp} from './types/pokemonStatesSection.type';
+import PokemonPower from '../../../../../../assets/images/PokemonPower.png';
 
 const PokemonStatsSection: React.FC<PokemonStatesSectionProp> = ({
   height,
@@ -20,10 +21,7 @@ const PokemonStatsSection: React.FC<PokemonStatesSectionProp> = ({
         <Text fontSize="lg" color="#8A0303">
           Power
         </Text>
-        <Image
-          source={require('../../../../../../assets/images/PokemonPower.png')}
-          style={{height: 40, width: 40}}
-        />
+        <Image source={PokemonPower} style={{height: 40, width: 40}} />
       </VStack>
       <PokemonDetails title="Weight" description={`${weight}Kg`} />
     </HStack>

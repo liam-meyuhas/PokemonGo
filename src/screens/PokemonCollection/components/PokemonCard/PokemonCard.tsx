@@ -3,15 +3,18 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Image, Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {usePokemonStore} from '../../../../../../store/usePokemonCollectoin';
-import {frontCardStyles} from './styles/frontCard.type';
-import PokemonNickName from './components/PokemonNickName';
-import CaptureDate from './components/CaptureDate';
+import {pokemonCardStyles} from './styles/PokemonCard.type';
+import {
+  BACKGROUNDCOLORS,
+  BORDERCOLORS,
+} from '../../../constants/PokemonCard.constants';
+import {PokemonCardProps} from './types/PokemonCard.type';
 import PokemonName from './components/PokemonName';
-import {BACKGROUNDCOLORS, BORDERCOLORS} from './constants/frontCard.constants';
-import {FrontCardProps} from './types/fronCard.type';
+import CaptureDate from './components/CaptureDate';
+import PokemonNickName from './components/PokemonNickName';
+import {usePokemonStore} from '../../../../store/usePokemonCollectoin';
 
-const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({pokemon}) => {
   const isFavorite = usePokemonStore(state => state.isFavorite);
 
   return (
@@ -19,12 +22,12 @@ const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
       colors={BORDERCOLORS}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 1}}
-      style={frontCardStyles.borderWrapper}>
+      style={pokemonCardStyles.borderWrapper}>
       <LinearGradient
         colors={BACKGROUNDCOLORS}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
-        style={frontCardStyles.innerCard}>
+        style={pokemonCardStyles.innerCard}>
         <VStack space={1} alignItems="center">
           <PokemonNickName pokemon={pokemon} />
 
@@ -46,4 +49,4 @@ const FrontCard: React.FC<FrontCardProps> = ({pokemon}) => {
   );
 };
 
-export default FrontCard;
+export default PokemonCard;

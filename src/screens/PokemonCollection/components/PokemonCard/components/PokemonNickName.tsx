@@ -1,10 +1,10 @@
 import {HStack, Pressable, Text} from 'native-base';
-import {ROUTES} from '../../../../../../../components/Navigation/enums/navigation.enum';
 import {useNavigation} from '@react-navigation/native';
-import {NavigationProps} from '../../../../../../../components/Navigation/types/navigation.type';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {PokemonNickNameProps} from '../types/fronCard.type';
+import {PokemonNickNameProps} from '../types/PokemonCard.type';
+import {ROUTES} from '../../../../../components/Navigation/enums/navigation.enum';
+import {NavigationProps} from '../../../../../components/Navigation/types/navigation.type';
 
 const PokemonNickName: React.FC<PokemonNickNameProps> = ({pokemon}) => {
   const navigation = useNavigation<NavigationProps>();

@@ -17,4 +17,9 @@ export const style = StyleSheet.create({
     borderRadius: 8,
     margin: 10,
   },
+  cardContainer: {
+    width: 160,
+    height: 220,
+    marginBottom: 16,
+  },
 });

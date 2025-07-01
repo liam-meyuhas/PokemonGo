@@ -1,6 +1,6 @@
 import {Text} from 'native-base';
 import React from 'react';
-import {CaptureDateProps} from '../types/fronCard.type';
+import {CaptureDateProps} from '../types/PokemonCard.type';
 
 const CaptureDate: React.FC<CaptureDateProps> = ({captureDate}) => {
   return (

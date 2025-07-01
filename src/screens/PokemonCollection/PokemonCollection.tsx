@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {usePokemonStore} from '../../store/usePokemonCollectoin';
 import {Box, HStack, ScrollView} from 'native-base';
-import FlipCard from './components/FlipCard/FlipCard';
 import {ImageBackground, TextInput} from 'react-native';
 import FilterAndSortCollection from './components/FilterAndSortCollection/FilterAndSortCollection';
 import {SortDirection} from './components/FilterAndSortCollection/types/FilterAndSortCollection.type';
@@ -9,6 +8,8 @@ import {filterAndSortPokemons} from './components/FilterAndSortCollection/utils/
 import LinearGradient from 'react-native-linear-gradient';
 import {FADEBACKGROUNG} from './constants/pokemonCollection.constants';
 import {style} from './styles/pokemonCollection.style';
+import PokemonCard from './components/PokemonCard/PokemonCard';
+import PokemonCollectionBackground from '../../assets/images/PokemonCollectionBackground.png';
 
 const PokemonCollectionScreen = () => {
   const [search, setSearch] = useState('');
@@ -27,9 +28,7 @@ const PokemonCollectionScreen = () => {
   );
 
   return (
-    <ImageBackground
-      source={require('../../assets/images/PokemonCollectionBackground.png')}
-      style={style.image}>
+    <ImageBackground source={PokemonCollectionBackground} style={style.image}>
       <LinearGradient
         colors={FADEBACKGROUNG}
         start={{x: 0, y: 0}}
@@ -64,7 +63,9 @@ const PokemonCollectionScreen = () => {
             justifyContent="flex-start"
             space={4}>
             {filteredPokemons.map(pokemon => (
-              <FlipCard key={pokemon.name} pokemon={pokemon} />
+              <Box key={pokemon.name} style={style.cardContainer}>
+                <PokemonCard pokemon={pokemon} />
+              </Box>
             ))}
           </HStack>
         </Box>

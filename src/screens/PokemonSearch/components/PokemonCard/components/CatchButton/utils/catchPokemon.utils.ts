@@ -1,3 +1,4 @@
+import {useMemo} from 'react';
 import {Animated, Easing} from 'react-native';
 
 const isCaught = (): boolean => {

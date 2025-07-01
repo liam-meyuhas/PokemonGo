@@ -1,5 +1,4 @@
-export type PokemonDetailsProp = {
+export type PokemonDetailsProps = {
   title: string;
   description: string;
-  style?: string;
 };

@@ -1,6 +1,6 @@
 import {Text} from 'native-base';
 import React from 'react';
-import {PokemonNameProps} from '../types/fronCard.type';
+import {PokemonNameProps} from '../types/PokemonCard.type';
 
 const PokemonName: React.FC<PokemonNameProps> = ({pokemonName}) => {
   return (
